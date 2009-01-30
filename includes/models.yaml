@@ -1,0 +1,14 @@
+#
+#	models for the database
+#	iihoo :)
+#		
+
+database_option:
+   primary_key: id
+   table_name: options
+   fields: option_name, option_value, comment
+
+page:
+   primary_key: id
+   table_name: pages
+   fields: title, text, last_modified
