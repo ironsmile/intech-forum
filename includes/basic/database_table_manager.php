@@ -125,6 +125,46 @@ class database_manager{
 		$this->$pk = $old_id;
 		return $new_id;
 	}
+	
+	//
+	//	array of database objects :)
+	//	
+	//
+	function getArrayBy( $where = "", $order_by = "", $limit = "" ){
+		global $sql_cls;
+		$sql = &$sql_cls;
+		$pk = $this->primary_key;
+		
+		$arr = array();
+		$ret = array();
+		$sql->query = "SELECT `$pk` FROM `".$this->table_name."` ";
+		
+		if( !empty($where) and $where ) $sql->query .= "WHERE $where ";
+		
+		if( !empty($order_by) and $order_by ) $sql->query .= "ORDER BY $order_by ";
+		
+		if( !empty($limit) and $limit ) $sql->query .= "LIMIT $limit ";
+		
+		$sql->query .= ";";
+		$sql->exec_sql();
+		while( $row = $sql->fetch_row() ){
+			$arr[] = $row[$pk];
+		}
+		
+		$cls = isset($this->classname) ? $this->classname : self;
+		foreach( $arr as $id ){
+			$ret[] = new $cls($id);
+		}
+		
+		return $ret;
+	}
+	
+	
+	function getRange( $from, $to ){
+		$pk = $this->primary_key;
+		return getArrayBy( "`$pk` >= $from AND `$pk` < $to" );
+	}
+	
 };
 
 ?>

@@ -51,7 +51,7 @@ class SQLinterface{
 	
 	// prepares value for db input and adds slashesh when needed ( value becomes 'value' )
 	function input_value( $value ){
-		return ( is_numeric($value) or in_array( $value, array(
+		return ( is_numeric($value) or in_array( strtolower($value), array(
   						'now()', 'null', 'unix_timestamp()',
   							) )
 					) ? $value : "'".$this->escape($value)."'" ;

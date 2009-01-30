@@ -117,6 +117,7 @@ function create_database_models(){
 function get_eval_database_class_str( $class_name, $table_name, $primary_key, $fields ){
 	return "
 		class ".$class_name." extends database_manager{
+		var \$classname = \"".$class_name."\";
 			function ".$class_name."( \$record_id = 0 ){
 				parent::database_manager('".$table_name."','".$primary_key."','".$fields."',\$record_id);
 			}
