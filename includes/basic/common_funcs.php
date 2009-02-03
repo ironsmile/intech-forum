@@ -13,41 +13,6 @@ function get_url($show_query = true, $show_port = false){
     return $protocol.$host.$port.$file.$query;
 }
 
-/*
-*
-*	every menu item is rendered by replacing
-*		%title with the title of the menu and
-*		%page with the id of the page it has to link
-*	in the $seed_str
-*	
-*	If there's no menu link for the language it uses the default ( 1 )
-*
-*/
-// function render_menu( $seed_str = "<a href='index.php?p=%page'>%title</a>" ){
-// 	global $sql_fnc;
-// 	$sql = $sql_fnc;
-// 	
-// 	$sql->query = "SELECT `id`, `title` FROM menu WHERE `parent_id` = 0 ;";
-// 	$sql->exec_sql();
-// 	
-// 	$menus = array();
-// 	
-// 	while( $row = $sql->fetch_row() ){
-// 		$menus[$row['id']] = $row['title'];
-// 	}
-// 	
-// 	$output = "\n<!-- render_menu output:\nseed:$seed_str -->\n";
-// 	
-// 	foreach( $menus as $menu_id => $title ){
-// 		$p_id = get_page_id_by_menu_id($menu_id);
-// // 		if( empty($p_id) ) $p_id = get_page_id_by_menu_id($menu_id,get_option("default_language_id"));
-// 		if( empty($p_id) ) continue;
-// 		$output .= str_replace("%page",$p_id, str_replace("%title", __($title), $seed_str))."\n";
-// 	}
-// 	
-// 	return $output;
-// }
-
 function get_option( $opt_name ){
 	global $sql_fnc;
 	$sql = $sql_fnc;
@@ -70,8 +35,12 @@ if( !function_exists("_") ):
 function _( $str ){ return $str; }
 endif;
 
-function hash($string){
-	return md5(DB_SALT.$string);
+function hash_string($string){
+	return md5(HASH_SALT.$string);
+}
+
+function anti_bot_str($input){
+	return substr(hash_string($input),0,ANTI_BOT_TXT_LEN);
 }
 
 ?>

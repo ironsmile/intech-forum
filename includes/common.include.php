@@ -19,9 +19,7 @@
 		"basic/template_class.php",
 		"basic/database_table_manager.php",
 		"basic/class_factory.php",
-// 		"basic/translator.php",
 		"basic/select_class.php",
-// 		"classes/comment_form_renderer.php",
 	);
 	
 	foreach ( $includes as $inc_file )
@@ -32,6 +30,7 @@
 			
 	unset($includes,$inc_file);
 	
+	if( !defined("NO_DATABASE_ACTIONS") ):
 	$sql = get_sql_object($MySQLhost,$MySQLuser,$MySQLpass,$MySQLdatabase);
 
 	// specially reserved for use in functions and classes:
@@ -41,6 +40,7 @@
 // 	create_classes_for_all_tables(); //class for all databases with primary keys
 // 	create_database_classes(); // creates classes specified in class_factory table from the database
 	create_database_models();
+	endif; // NO_DATABSE_ACTIONS
 	
 	session_start();
 ?>
