@@ -89,7 +89,7 @@ class DatabaseObject {
 		}
 	}
 	
-	public function __get($name, $value) {
+	public function __get($name) {
 		if (!array_key_exists($name, $this->fieldToData)) {
 			throw new NonexistentDatabaseFieldException();
 		}

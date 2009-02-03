@@ -13,6 +13,8 @@
 		"db_settings.php",
 		"config.php",
 		"basic/sqlclass.php",
+		"basic/SQLConnection.php",
+		"basic/Model.php",
 		"basic/common_funcs.php",
 		"basic/template_class.php",
 		"basic/database_table_manager.php",

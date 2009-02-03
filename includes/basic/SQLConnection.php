@@ -31,7 +31,7 @@ class MySQLConnection implements SQLConnection {
 	public function sendQuery($query) {
 		$result = mysql_query($query, $this->linkID);
 		if ($result === FALSE) {
-			throw new SQLException(mysql_error());
+			throw new SQLException(mysql_error()."\n Full Query: [".$query."]");
 		}
 		
 		return $result;
@@ -46,7 +46,7 @@ class MySQLConnection implements SQLConnection {
 	}
 
 	public function selectForShare($select) {
-		return $this->sendQuery("SELECT " . $select . " LOCK FOR SHARE MODE");
+		return $this->sendQuery("SELECT " . $select . " LOCK IN SHARE MODE");
 	}
 	
 	public function getLastInsertID() {
