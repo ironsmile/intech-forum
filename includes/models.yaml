@@ -9,7 +9,7 @@ Forum:
 Post:
    primary_key: id
    table_name: posts
-   fields: forum_id, topic_id, poster_id, posted_time, last_updated_time
+   fields: forum_id, topic_id, poster_id, posted_time, last_updated_time, content
 Topic:
    primary_key: id
    table_name: topics
