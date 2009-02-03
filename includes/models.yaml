@@ -17,4 +17,4 @@ Topic:
 User:
    primary_key: id
    table_name: users
-   fields: name, password, email, type, avatar
+   fields: name, password, email, type

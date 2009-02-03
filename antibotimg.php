@@ -34,7 +34,7 @@
 		imagepalettecopy($letimg,$img);
 		imagefilledrectangle($letimg, 0,0,LTTER_IMG_SIZE, LTTER_IMG_SIZE, $white);
 		imagestring($letimg, 5, 0, 0, $letter, $colors[rand(0,$rand_max)]);
-		$rotate = imagerotate($letimg,rand(-90,90),$white);
+		$rotate = imagerotate($letimg,rand(-30,30),$white);
 		
 		imagecopymerge($img, $rotate, 10+$pos, IMG_HEIGHT/2-10, 0,0, LTTER_IMG_SIZE,LTTER_IMG_SIZE, 100 );
 		

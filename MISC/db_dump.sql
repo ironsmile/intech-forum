@@ -18,7 +18,6 @@ CREATE TABLE users (
  password VARCHAR(255),
  email VARCHAR(255) NOT NULL,
  type SMALLINT UNSIGNED NOT NULL CHECK (type > 0 AND type < 4),
- avatar VARCHAR(255),
 
  PRIMARY KEY(id)
 ) ENGINE InnoDB;

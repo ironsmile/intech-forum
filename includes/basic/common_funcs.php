@@ -45,10 +45,13 @@ function anti_bot_str($input){
 
 function h($s){ return htmlspecialchars($s); }
 
-function is_logged(){
+function user_logged(){
 	return isset($_SESSION['user_id']) and is_numeric($_SESSION['user_id']);
 }
 
-	
+function get_gravatar_src($email, $size = 100){
+	return GRAVATAR_URL."?gravatar_id=".md5( strtolower($email) ).
+ 	"&default=".urlencode(DEFAULT_USER_PIC)."&size=".$size;
+}
 
 ?>

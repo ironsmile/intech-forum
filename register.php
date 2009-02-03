@@ -25,7 +25,7 @@ include_once("includes/common.include.php");
 		
 		if( !count( $errors ) ){
 			header("Location: index.php");
-			exit("successfuly logged");
+			exit("successfully logged");
 		}
 	}
 	
