@@ -70,6 +70,8 @@ if( !function_exists("_") ):
 function _( $str ){ return $str; }
 endif;
 
-
+function hash($string){
+	return md5(DB_SALT.$string);
+}
 
 ?>
