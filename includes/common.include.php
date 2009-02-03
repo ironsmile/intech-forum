@@ -11,6 +11,7 @@
 	
 	$includes = array(
 		"db_settings.php",
+		"user_types.php",
 		"config.php",
 		"basic/sqlclass.php",
 		"basic/SQLConnection.php",

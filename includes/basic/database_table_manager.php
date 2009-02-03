@@ -79,16 +79,18 @@ class database_manager{
 			$this->$pk = ( $this->$pk ) ? $this->$pk : "NULL";
 			
 			foreach( $this->fieldnames as $prperty ){
-				$res[] = $sql->escape($this->$prperty);
+				$res[] = $sql->input_value($this->$prperty);
 			}
 			
 			$sql->exec_sql("INSERT INTO
 			`".$this->table_name."` (`".implode("`, `",$this->fieldnames)."`) VALUES 
-			('".implode("', '",$res)."') ;");
+			(".implode(", ",$res).") ;");
+			
+// 			print $sql->query . "<br />";
 			
 			$sql->exec_sql("SELECT LAST_INSERT_ID() as lid ;");
 			$row = $sql->fetch_row();
-			
+					
 // 			$this->$pk = $sql->last_insert_id;
 			$this->$pk = $row['lid'];
 		}
@@ -102,10 +104,9 @@ class database_manager{
 			". implode(", ",$res)."
 			WHERE `".$pk."` = ".$sql->escape($this->$pk)." ;");
 			
-// 			print $sql->query . "<br />";
 		}
 		
-		
+
 		return $this->$pk;
 	}
 

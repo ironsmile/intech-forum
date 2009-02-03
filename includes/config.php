@@ -3,7 +3,7 @@
 define( "TEMPLATES_DIR", SITE_ROOT."templates/" );
 define( "MODULES_DIR", INCLUDES_PATH."modules/" );
 
-define( "SPYC_FILE", MODULES_DIR."spyc/spyc.php" );
+define( "SPYC_FILE", MODULES_DIR."spyc/spyc.php5" );
 define( "TEXTILE_FILE", MODULES_DIR."textile/classTextile.php" );
 
 // do not change once the forum is installed!

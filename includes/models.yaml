@@ -2,13 +2,19 @@
 #	models for the database
 #	iihoo :)
 #		
-
-database_option:
+Forum:
    primary_key: id
-   table_name: options
-   fields: option_name, option_value, comment
-
-page:
+   table_name: forums
+   fields: name, description
+Post:
    primary_key: id
-   table_name: pages
-   fields: title, text, last_modified
+   table_name: posts
+   fields: forum_id, topic_id, poster_id, posted_time, last_updated_time
+Topic:
+   primary_key: id
+   table_name: topics
+   fields: forum_id, poster_id, titile, views_count
+User:
+   primary_key: id
+   table_name: users
+   fields: name, password, email, type, avatar

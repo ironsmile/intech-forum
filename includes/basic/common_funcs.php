@@ -43,4 +43,6 @@ function anti_bot_str($input){
 	return substr(hash_string($input),0,ANTI_BOT_TXT_LEN);
 }
 
+function h($s){ return htmlspecialchars($s); }
+
 ?>
