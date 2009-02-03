@@ -38,6 +38,9 @@
 	$sql_fnc = get_sql_object($MySQLhost,$MySQLuser,$MySQLpass,$MySQLdatabase);
 	$sql_cls = get_sql_object($MySQLhost,$MySQLuser,$MySQLpass,$MySQLdatabase);
 	
+	// Zdravko's SQLConnection
+	$db_con = new MySQLConnection($MySQLhost,$MySQLuser,$MySQLpass,$MySQLdatabase);
+	
 // 	create_classes_for_all_tables(); //class for all databases with primary keys
 // 	create_database_classes(); // creates classes specified in class_factory table from the database
 	create_database_models();

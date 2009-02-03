@@ -6,4 +6,3 @@
   $MySQLdatabase = "intech_forum";
  
 ?>
- 
