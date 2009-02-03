@@ -1,7 +1,7 @@
 <?php
 	define( "DEBUG_MODE", true );
 	
-	$err_type = ( DEBUG_MODE ) ? E_ALL : E_ERROR ;
+	$err_type = ( DEBUG_MODE ) ? E_ALL : 0 ;
 	error_reporting( $err_type );
 	
 	define( "SITE_ROOT", realpath(dirname(__FILE__)."/..")."/" );
