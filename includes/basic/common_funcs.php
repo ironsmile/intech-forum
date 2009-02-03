@@ -46,7 +46,9 @@ function anti_bot_str($input){
 function h($s){ return htmlspecialchars($s); }
 
 function is_logged(){
-	return (isset($_SESSION['user_id'])) ? new User($_SESSION['user_id']) : false;
+	return isset($_SESSION['user_id']) and is_numeric($_SESSION['user_id']);
 }
+
+	
 
 ?>

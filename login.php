@@ -18,7 +18,9 @@ if( isset($p['uinfo']) and is_array($p['uinfo']) ){
 		else {
 			$_SESSION['user_id'] = $row['id'];
 // 			$_SESSION['user_identifier'] = md5($row['id'].$row['email'].$hashed_pass);
-			header("Location: index.php");
+			$location = isset($_SESSION['back_to']) ? $_SESSION['back_to'] : "index.php" ;
+			unset($_SESSION['back_to']);
+			header("Location: $location");
 			exit();
 		}
 		
