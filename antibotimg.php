@@ -4,8 +4,7 @@
 	define("IMG_WIDTH", IMG_HEIGHT*2);
 	define("LTTER_IMG_SIZE", 20);
 	
-	define("NO_DATABASE_ACTIONS", true);
-	include_once("includes/common.include.php");
+	include_once("includes/controller_setup.php");
 	
 	function arr_to_color($arr){
 		global $img;

@@ -1,13 +1,15 @@
 <?php
-	include_once("includes/common.include.php");
-	
-	
-// 	$con = new MySQLConnection("127.0.0.1","php_scripts","botove","intech_forum");
-	
-// 	$fld = new DatabaseObject($con,"TEST",0,array("field1","field2","integer"));
-	
+require_once 'includes/controller_setup.php';
+
+class IndexController implements Controller {
+	public function execute($databaseConnection, $config, &$requestData) {
+		$requestData['content'] = CONTENT_INDEX;
+
+		$requestData['forums'] = getForums($databaseConnection);
+	}
+}
+
+$controller = new IndexController();
+
+include 'includes/ControllerExecutor.php';
 ?>
-<body  bgcolor="#cccccc">
-	<img src="antibotimg.php?str=testimage" />
-	<img src="<?= get_gravatar_src("ironsmile@gmail.com") ?>" alt="avatar" title="gravatar!" />
-</body>
